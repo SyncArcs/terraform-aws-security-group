@@ -38,7 +38,7 @@ module "security_group" {
     protocol    = "tcp"
     cidr_blocks = ["172.16.0.0/16"]
     description = "Allow ssh traffic."
-  },
+    },
     {
       rule_count  = 2
       from_port   = 27017
@@ -57,7 +57,7 @@ module "security_group" {
     protocol    = "tcp"
     cidr_blocks = ["172.16.0.0/16"]
     description = "Allow ssh outbound traffic."
-  },
+    },
     {
       rule_count  = 2
       from_port   = 27017

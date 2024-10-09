@@ -37,7 +37,7 @@ module "security_group" {
     protocol    = "tcp"
     cidr_blocks = ["172.16.0.0/16"]
     description = "Allow ssh traffic."
-  },
+    },
     {
       rule_count  = 2
       from_port   = 27017
@@ -54,7 +54,7 @@ module "security_group" {
     to_port     = 22
     protocol    = "tcp"
     description = "Allow ssh traffic."
-  },
+    },
     {
       rule_count  = 2
       from_port   = 443
@@ -71,7 +71,7 @@ module "security_group" {
     protocol                 = "tcp"
     source_security_group_id = "sg-0708440035c9e03c7"
     description              = "Allow ssh traffic."
-  },
+    },
     {
       rule_count               = 2
       from_port                = 27017
@@ -79,7 +79,7 @@ module "security_group" {
       protocol                 = "tcp"
       source_security_group_id = "sg-0708440035c9e03c7"
       description              = "Allow Mongodb traffic."
-    }]
+  }]
 
   ## EGRESS Rules
   new_sg_egress_rules_with_cidr_blocks = [{
@@ -89,7 +89,7 @@ module "security_group" {
     protocol    = "tcp"
     cidr_blocks = [module.vpc.vpc_cidr_block, "172.16.0.0/16"]
     description = "Allow ssh outbound traffic."
-  },
+    },
     {
       rule_count  = 2
       from_port   = 27017
@@ -106,14 +106,14 @@ module "security_group" {
     to_port     = 22
     protocol    = "tcp"
     description = "Allow ssh outbound traffic."
-  },
+    },
     {
       rule_count  = 2
       from_port   = 27017
       to_port     = 27017
       protocol    = "tcp"
       description = "Allow Mongodb traffic."
-    }]
+  }]
 
   new_sg_egress_rules_with_source_sg_id = [{
     rule_count               = 1
@@ -122,7 +122,7 @@ module "security_group" {
     protocol                 = "tcp"
     source_security_group_id = "sg-0708440035c9e03c7"
     description              = "Allow ssh outbound traffic."
-  },
+    },
     {
       rule_count               = 2
       from_port                = 27017
@@ -130,5 +130,5 @@ module "security_group" {
       protocol                 = "tcp"
       source_security_group_id = "sg-0708440035c9e03c7"
       description              = "Allow Mongodb traffic."
-    }]
+  }]
 }

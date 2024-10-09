@@ -23,10 +23,10 @@ module "vpc" {
 ## Security Group Module Call.
 ##-----------------------------------------------------------------------------
 module "security_group" {
-  source      = "../../."
-  name        = local.name
-  environment = local.environment
-  managedby   = "SyncArcs"
+  source              = "../../."
+  name                = local.name
+  environment         = local.environment
+  managedby           = "SyncArcs"
   vpc_id              = module.vpc.id
   prefix_list_enabled = true
   entry = [{
